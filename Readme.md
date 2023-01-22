@@ -17,7 +17,7 @@ Quando você acessar o painel do H2, você será solicitado a configurar o datas
 
 Observação
 
-É importante lembrar que, como o H2 é um banco de dados em memória, todos os dados serão perdidos quando a aplicação for desligada. Por isso, é recomendável utilizar outro banco de dados para produção.
+É importante lembrar que, como o H2 é um banco de dados básico, por isso, é recomendável utilizar outro banco de dados para produção como o Postgres ou Mariadb.
 
 Instruções de uso do Swagger
 
