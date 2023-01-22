@@ -5,25 +5,27 @@ package br.com.ulteriorti.api.ulsis.models;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "TB_Clients")
 public class Customer implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(nullable = false, unique = true, length = 64)
     private String nomeRazaoSocial;
-    @Column(nullable = true, unique = true, length = 32)
+    @Column(unique = true, length = 32)
     private String identificador;//cpf ou cnpj, pode ser nulo para manter confidencialidade
 
-    @Column(nullable = true, unique = false, length = 32)
+    @Column(length = 32)
     private String codigoPostal;
 
-    @Column(nullable = true, unique = false, length = 64)
+    @Column(length = 64)
     private String endereco;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -33,13 +35,13 @@ public class Customer implements Serializable {
     @JoinColumn(name = "estado_id")
     private State estado;
 
-    @Column(nullable = true, unique = false, length = 32)
+    @Column(length = 32)
     private String contato;
 
-    @Column(nullable = true, unique = false, length = 16)
+    @Column(length = 16)
     private String telefone;
 
-    @Column(nullable = true, unique = false, length = 16)
+    @Column(length = 16)
     private String celular;
 
     @Column(nullable = false, unique = true, length = 32)
