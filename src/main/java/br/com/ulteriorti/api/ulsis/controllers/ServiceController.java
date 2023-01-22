@@ -6,6 +6,7 @@ import br.com.ulteriorti.api.ulsis.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -15,6 +16,10 @@ public class ServiceController {
     @Autowired
     private ServiceService serviceService;
 
+    @GetMapping
+    public List<ServiceModel> getAllServicesModel() {
+        return serviceService.getAllServiceModel();
+    }
     @PostMapping
     public ServiceModel createService(@RequestBody ServiceModel service) {
         return serviceService.createService(service);

@@ -34,9 +34,13 @@ public class ServiceService {
         return serviceRepository.findById(id).orElse(null);
     }
 
-    public List<Service> findServicesByDescricao(String descricao) {
-        return (List<Service>) serviceRepository.findByDescricao(descricao);
+    public List<ServiceModel> findServicesByDescricao(String descricao) {
+        return (List<ServiceModel>) serviceRepository.findByDescricao(descricao);
     }
 
     public void deleteService(UUID id){serviceRepository.deleteById(id);};
+
+    public List<ServiceModel> getAllServiceModel() {
+        return (List<ServiceModel>)serviceRepository.findAll() ;
+    }
 }
