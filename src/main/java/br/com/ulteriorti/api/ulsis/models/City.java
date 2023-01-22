@@ -1,6 +1,6 @@
 package br.com.ulteriorti.api.ulsis.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.UUID;
 
@@ -9,7 +9,8 @@ import java.util.UUID;
 public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "uuid")
     private UUID id;
 
     @Column(nullable = false)

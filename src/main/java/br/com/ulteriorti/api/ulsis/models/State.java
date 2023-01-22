@@ -1,6 +1,8 @@
 package br.com.ulteriorti.api.ulsis.models;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,7 +12,8 @@ import java.util.UUID;
 public class State {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "uuid")
     private UUID id;
 
     public UUID getId() {

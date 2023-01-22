@@ -1,10 +1,5 @@
 package br.com.ulteriorti.api.ulsis.models;
-
-
-
-
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
@@ -15,7 +10,8 @@ public class Customer implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "uuid")
     private UUID id;
     @Column(nullable = false, unique = true, length = 64)
     private String nomeRazaoSocial;
@@ -31,9 +27,6 @@ public class Customer implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "cidade_id")
     private City city;
-    @ManyToOne
-    @JoinColumn(name = "estado_id")
-    private State estado;
 
     @Column(length = 32)
     private String contato;
@@ -129,12 +122,7 @@ public class Customer implements Serializable {
     public City getCidade() {
         return city;
     }
-    public State getEstado(){
-        return estado;
-    }
-    public void serEstado(State estado){
-        this.estado = estado;
-    }
+
     public String getContato() {
         return contato;
     }

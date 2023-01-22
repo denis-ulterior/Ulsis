@@ -1,7 +1,9 @@
 package br.com.ulteriorti.api.ulsis.models;
 
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 
 import java.util.UUID;
 
@@ -10,8 +12,9 @@ import java.util.UUID;
 @Table(name = "TB_Equipamentos")
 public class Equipment {
     @Id
+    @Column(columnDefinition = "uuid")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private String id;
 
     @Column(nullable = false, length = 64)
     private String name;
