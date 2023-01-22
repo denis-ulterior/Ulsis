@@ -10,8 +10,10 @@ import java.util.UUID;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    List<Customer> findById(UUID id);
+    Customer findById(UUID id);
     List<Customer> findByNomeRazaoSocial(String nomeRazaoSocial);
     List<Customer> findByTelefone(String telefone);
     List<Customer> findByCelular(String celular);
+
+    void deleteById(UUID id);
 }

@@ -1,28 +1,42 @@
 package br.com.ulteriorti.api.ulsis.services;
 
+import br.com.ulteriorti.api.ulsis.models.Customer;
+import br.com.ulteriorti.api.ulsis.models.Equipment;
 import br.com.ulteriorti.api.ulsis.models.ServiceModel;
 import br.com.ulteriorti.api.ulsis.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ServiceService {
+
     @Autowired
     private ServiceRepository serviceRepository;
 
     public ServiceModel createService(ServiceModel service) {
         return serviceRepository.save(service);
     }
-    public ServiceModel updateService(ServiceModel service) {
+
+    public ServiceModel updateService(UUID id, ServiceModel service) {
         return serviceRepository.save(service);
     }
-    public ServiceModel findByName(String name) {
-        return serviceRepository.findByName(name);
+
+
+    public List<ServiceModel> findAllServices() {
+        return serviceRepository.findAll();
     }
-    public ServiceModel findByDataPrestacao(LocalDate dataPrestacao) {
-        return serviceRepository.findByDataPrestacao(dataPrestacao);
+
+    public ServiceModel findServiceById(UUID id) {
+        return serviceRepository.findById(id).orElse(null);
     }
+
+    public List<Service> findServicesByDescricao(String descricao) {
+        return (List<Service>) serviceRepository.findByDescricao(descricao);
+    }
+
+    public void deleteService(UUID id){serviceRepository.deleteById(id);};
 }

@@ -34,6 +34,10 @@ public class Customer implements Serializable {
     @Column(length = 16)
     private String telefone;
 
+    public UUID getId() {
+        return id;
+    }
+
     @Column(length = 16)
     private String celular;
 
@@ -73,14 +77,6 @@ public class Customer implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getNomeRazaoSocial() {

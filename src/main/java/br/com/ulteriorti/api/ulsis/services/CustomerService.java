@@ -25,8 +25,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer getCustomerById(Long id) {
-        return customerRepository.findById(id).orElse(null);
+    public Customer getCustomerById(UUID id) {
+        return  customerRepository.findById(id);
     }
 
     public Customer createCustomer(Customer customer) {
@@ -56,7 +56,7 @@ public class CustomerService {
         }
         return null;
     }
-    public void deleteCustomer(Long id) {
+    public void deleteCustomer(UUID id) {
         customerRepository.deleteById(id);
     }
 }

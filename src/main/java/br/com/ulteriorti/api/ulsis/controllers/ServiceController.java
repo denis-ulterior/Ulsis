@@ -1,12 +1,15 @@
 package br.com.ulteriorti.api.ulsis.controllers;
 
+import br.com.ulteriorti.api.ulsis.models.Customer;
 import br.com.ulteriorti.api.ulsis.models.ServiceModel;
 import br.com.ulteriorti.api.ulsis.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
-@RequestMapping("/services")
+@RequestMapping("/api/services")
 public class ServiceController {
 
     @Autowired
@@ -17,9 +20,14 @@ public class ServiceController {
         return serviceService.createService(service);
     }
 
-    @PutMapping
-    public ServiceModel updateService(@RequestBody ServiceModel service) {
-        return serviceService.updateService(service);
+    @PutMapping("/{id}")
+    public ServiceModel updateService(@PathVariable UUID id,@RequestBody ServiceModel service) {
+        return serviceService.updateService(id,service);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteService(@PathVariable UUID id) {
+        serviceService.deleteService(id);
     }
 
 }

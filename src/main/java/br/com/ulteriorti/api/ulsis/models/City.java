@@ -40,4 +40,5 @@ public class City {
     public UUID getId() {
         return id;
     }
+
 }

@@ -16,10 +16,6 @@ public class State {
     @Column(columnDefinition = "uuid")
     private UUID id;
 
-    public UUID getId() {
-        return id;
-    }
-
     @Column(nullable = false,length = 2)
     private String sigla;
 
@@ -29,5 +25,9 @@ public class State {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }
